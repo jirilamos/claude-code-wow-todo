@@ -112,7 +112,7 @@ frontend/
 
 ## 7) How to run
 
-bash
+`bash`
 docker compose up --build
 
 ## 8) Instruction to Claude Code
