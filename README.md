@@ -63,21 +63,13 @@ After implementation:
 - Vaadin 24+
 - Maven
 
-### Vaadin Theme (IMPORTANT)
-If a custom Vaadin theme is used, it **must be created inside the frontend module** at:
+## UI Theme note
 
-frontend/themes/<theme-name>/styles.css
+This demo uses the default Vaadin (Lumo) theme.
+A custom theme (`todo-theme`) was intentionally removed to keep the Docker production build fast and reliable for live demos.
 
-Example for this project:
-frontend/themes/todo-theme/styles.css
-
-This is required so that the Vaadin production build (Vite/Rollup) works correctly
-inside Docker (`mvn package -Pproduction`).
-
-Do NOT rely only on themes under:
-src/main/resources/META-INF/resources/themes
-
-because those are not sufficient for the Vaadin frontend production bundle.
+If you want to add a custom theme later, make sure it is configured correctly for Vaadin production builds (Vite/Rollup),
+otherwise `mvn package -Pproduction` inside Docker may fail.
 
 
 ### Backend (Java)
