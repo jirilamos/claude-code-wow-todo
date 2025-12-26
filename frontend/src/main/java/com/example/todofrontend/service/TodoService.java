@@ -57,21 +57,10 @@ public class TodoService {
         }
     }
 
+
     public Todo updateTodo(Long id, Boolean done) {
         try {
-            // 1) Load existing todo to keep its title (backend requires it)
-            Todo existing = restTemplate.getForObject(
-                    backendUrl + "/api/todos/" + id,
-                    Todo.class
-            );
-            if (existing == null) {
-                System.err.println("Error updating todo: todo not found id=" + id);
-                return null;
-            }
-
-            // 2) Send PUT with BOTH title + done
             Map<String, Object> request = new HashMap<>();
-            request.put("title", existing.getTitle());
             request.put("done", done);
 
             HttpEntity<Map<String, Object>> entity = new HttpEntity<>(request);
