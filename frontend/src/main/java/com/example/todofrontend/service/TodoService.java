@@ -7,6 +7,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.http.HttpEntity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -61,27 +62,27 @@ public class TodoService {
             Map<String, Object> request = new HashMap<>();
             request.put("done", done);
 
-            restTemplate.patchForObject(
-                    backendUrl + "/api/todos/" + id,
-                    request,
-                    Todo.class
-            );
-            
             HttpEntity<Map<String, Object>> entity = new HttpEntity<>(request);
 
             restTemplate.exchange(
-                backendUrl + "/api/todos/" + id,
-                HttpMethod.PUT,
-                entity,
-                Void.class
+                    backendUrl + "/api/todos/" + id,
+                    HttpMethod.PUT,
+                    entity,
+                    Void.class
             );
-        
-        
+
+            // Fetch and return the updated todo
+            return restTemplate.getForObject(
+                    backendUrl + "/api/todos/" + id,
+                    Todo.class
+            );
+
         } catch (Exception e) {
             System.err.println("Error updating todo: " + e.getMessage());
             return null;
         }
     }
+
 
     public void deleteTodo(Long id) {
         try {
