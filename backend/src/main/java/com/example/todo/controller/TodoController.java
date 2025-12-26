@@ -45,14 +45,14 @@ public class TodoController {
 
     @PatchMapping("/{id}")
     @Operation(summary = "Update a todo")
-    public ResponseEntity<Todo> updateTodo(@PathVariable Long id, @Valid @RequestBody TodoRequest request) {
+    public ResponseEntity<Todo> updateTodo(@PathVariable Long id, @RequestBody TodoRequest request) {
         Todo todo = todoService.updateTodo(id, request);
         return ResponseEntity.ok(todo);
     }
 
     @PutMapping("/{id}")
     @Operation(summary = "Update a todo")
-    public ResponseEntity<Todo> updateTodoPut(@PathVariable Long id, @Valid @RequestBody TodoRequest request) {
+    public ResponseEntity<Todo> updateTodoPut(@PathVariable Long id, @RequestBody TodoRequest request) {
         Todo todo = todoService.updateTodo(id, request);
         return ResponseEntity.ok(todo);
     }
