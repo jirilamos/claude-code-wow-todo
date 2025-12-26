@@ -63,6 +63,23 @@ After implementation:
 - Vaadin 24+
 - Maven
 
+### Vaadin Theme (IMPORTANT)
+If a custom Vaadin theme is used, it **must be created inside the frontend module** at:
+
+frontend/themes/<theme-name>/styles.css
+
+Example for this project:
+frontend/themes/todo-theme/styles.css
+
+This is required so that the Vaadin production build (Vite/Rollup) works correctly
+inside Docker (`mvn package -Pproduction`).
+
+Do NOT rely only on themes under:
+src/main/resources/META-INF/resources/themes
+
+because those are not sufficient for the Vaadin frontend production bundle.
+
+
 ### Backend (Java)
 - Java 17+
 - Spring Boot 3.x
