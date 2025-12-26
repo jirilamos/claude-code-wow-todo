@@ -66,12 +66,17 @@ public class TodoService {
                     request,
                     Todo.class
             );
+            
+            HttpEntity<Map<String, Object>> entity = new HttpEntity<>(request);
 
-            // Fetch and return the updated todo
-            return restTemplate.getForObject(
-                    backendUrl + "/api/todos/" + id,
-                    Todo.class
+            restTemplate.exchange(
+                backendUrl + "/api/todos/" + id,
+                HttpMethod.PUT,
+                entity,
+                Void.class
             );
+        
+        
         } catch (Exception e) {
             System.err.println("Error updating todo: " + e.getMessage());
             return null;
