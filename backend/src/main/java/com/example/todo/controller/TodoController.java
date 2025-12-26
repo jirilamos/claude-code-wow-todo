@@ -50,6 +50,13 @@ public class TodoController {
         return ResponseEntity.ok(todo);
     }
 
+    @PutMapping("/{id}")
+    @Operation(summary = "Update a todo")
+    public ResponseEntity<Todo> updateTodoPut(@PathVariable Long id, @Valid @RequestBody TodoRequest request) {
+        Todo todo = todoService.updateTodo(id, request);
+        return ResponseEntity.ok(todo);
+    }
+
     @DeleteMapping("/{id}")
     @Operation(summary = "Delete a todo")
     public ResponseEntity<Void> deleteTodo(@PathVariable Long id) {
