@@ -175,4 +175,30 @@ Ensure docker compose up --build results in a working app.
 
 Keep it minimal, clean, and production-like.
 
+
+### 9) Demo (2 minutes)
+1) `docker compose down && docker compose up`
+2) Open UI: http://localhost:8080 (add + toggle + delete)
+3) Check backend: http://localhost:8081/actuator/health
+
+### 10) Verifying a “clean start”
+docker compose down --volumes
+docker compose up --build
+
+### 11) Quick overview: what do you start when in PowerShell
+
+Normal start:
+docker compose up
+
+After changing code / Dockerfile:
+docker compose up --build
+
+When you want to do a completely clean (delete DB):
+docker compose down --volumes → pak docker compose up --build
+
+Stop:
+docker compose down
+
+
+
 That’s it.
