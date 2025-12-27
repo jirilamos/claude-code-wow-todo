@@ -1,7 +1,7 @@
 # RELEASE MOMENT
 
-## 1) “Release moment” pro todo demo
-A) 2min WOW demo script (co říkat + co ukázat)
+## “Release moment” pro todo demo
+### 2min WOW demo script (co říkat + co ukázat)
 
 0:00–0:20
 „Tahle aplikace vznikla z jednoho README.md přes Claude Code. Ukážu, že ji umím spustit jedním příkazem.“
@@ -32,7 +32,8 @@ Otevři health: http://localhost:8081/actuator/health
 „AI vyrobila baseline, ale já řídím kvalitu: fixoval jsem reálné build issues (theme, PATCH, DB schema), přidal demo-safe REST kontrakt a udělal reproducible Docker start.“
 
 ---
-Mini shrnutí (na zapamatování)
+
+## Mini shrnutí (na zapamatování)
 
 🔴 Nejpomalejší / nejcitlivější: docker compose up --build
 
@@ -42,3 +43,15 @@ Mini shrnutí (na zapamatování)
 
 Pro WOW demo: stačí docker compose up
 --build ukazuj jen když chceš demonstrovat „od README až po běžící appku“.
+
+## 5min pitch + 10min deep-dive (stručný outline)
+### 5 min pitch
+- README = specifikace
+- Claude Code = implementace + PR
+- Docker Compose = reprodukovatelný run
+- ukázka UI + health
+
+### 10 min deep-dive
+- co AI udělala (kód, docker, CRUD)
+- co jsi řídil ty (bugfixy, kontrakty, spolehlivost, PR/merge)
+- rizika a kontrola (testy, small diffs, review)
