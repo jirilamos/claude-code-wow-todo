@@ -31,3 +31,14 @@ Otevři health: http://localhost:8081/actuator/health
 1:45–2:00
 „AI vyrobila baseline, ale já řídím kvalitu: fixoval jsem reálné build issues (theme, PATCH, DB schema), přidal demo-safe REST kontrakt a udělal reproducible Docker start.“
 
+---
+Mini shrnutí (na zapamatování)
+
+🔴 Nejpomalejší / nejcitlivější: docker compose up --build
+
+🟠 Ještě tvrdší (čistý rebuild): docker compose build --no-cache
+
+🟢 Běžné spuštění (rychlé): docker compose up
+
+Pro WOW demo: stačí docker compose up
+--build ukazuj jen když chceš demonstrovat „od README až po běžící appku“.
